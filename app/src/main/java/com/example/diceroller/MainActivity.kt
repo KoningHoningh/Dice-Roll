@@ -30,19 +30,34 @@ class MainActivity : AppCompatActivity() {
     private fun rollDice() {
 
         val dice = Dice(6) //Creates a dice D6.
+        val dice2 = Dice(6)
         val diceRoll = dice.roll() //Rolls a dice.
+        val diceRoll2 = dice2.roll()
         val diceImage: ImageView = findViewById(R.id.imageView) //Sets up a Image for the result.
+        val diceImage2: ImageView = findViewById(R.id.imageView2)
         // Determines what to show when what outcome the dice has.
-        when (diceRoll) {
-            1 -> diceImage.setImageResource(R.drawable.dice_1)
-            2 -> diceImage.setImageResource(R.drawable.dice_2)
-            3 -> diceImage.setImageResource(R.drawable.dice_3)
-            4 -> diceImage.setImageResource(R.drawable.dice_4)
-            5 -> diceImage.setImageResource(R.drawable.dice_5)
-            else -> diceImage.setImageResource(R.drawable.dice_6)
-        }
+        diceRollImage(diceRoll, diceImage)
+        diceRollImage(diceRoll2, diceImage2)
+       // when (diceRoll) {
+       //     1 -> diceImage.setImageResource(R.drawable.dice_1)
+       //     2 -> diceImage.setImageResource(R.drawable.dice_2)
+       //     3 -> diceImage.setImageResource(R.drawable.dice_3)
+       //     4 -> diceImage.setImageResource(R.drawable.dice_4)
+       //     5 -> diceImage.setImageResource(R.drawable.dice_5)
+       //     else -> diceImage.setImageResource(R.drawable.dice_6)
+       // }
     }
 }
+fun diceRollImage(diceRoll: Int, diceImage: ImageView)
+{
+    when (diceRoll) {
+        1 -> diceImage.setImageResource(R.drawable.dice_1)
+        2 -> diceImage.setImageResource(R.drawable.dice_2)
+        3 -> diceImage.setImageResource(R.drawable.dice_3)
+        4 -> diceImage.setImageResource(R.drawable.dice_4)
+        5 -> diceImage.setImageResource(R.drawable.dice_5)
+        else -> diceImage.setImageResource(R.drawable.dice_6)
+}}
 
 class Dice(val numSides: Int) {
     fun roll(): Int {
